@@ -1,1 +1,3 @@
-pip install requests beautifulsoup4 pyfiglet
+requests
+beautifulsoup4
+pyfiglet
