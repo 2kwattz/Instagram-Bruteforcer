@@ -1,4 +1,4 @@
-Instagram Bruteforcer (Under Development)
+Instagram Bruteforcer by Roshan Bhatia
 
 Run Command : pip3 install -r  requirements 
 
