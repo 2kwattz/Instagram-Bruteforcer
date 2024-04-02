@@ -24,9 +24,12 @@ def startBruteforce(driver):
         loginpage_source = driver.page_source
         soup = BeautifulSoup(loginpage_source, 'html.parser')
 # For Testing Purpose
-        with open('soup_content.txt', 'w', encoding='utf-8') as file:
-            file.write(str(soup))
-            print("Content saved to 'soup_content.txt' successfully.")
+        try:
+            with open('soup_content.txt', 'w', encoding='utf-8') as file:
+                file.write(str(soup))
+                print("Content saved to 'soup_content.txt' successfully.")
+        except:
+            print("Can't use fs module.")
 
         loginForm = soup.find(id='loginForm')
 
@@ -37,6 +40,18 @@ def startBruteforce(driver):
                 input("Press 1 for default wordlist. 2 for custom wordlist path\n"))
 
             if wordlist_input == 1 or wordlist_input == 2:
+
+                # Fetching the wordlist
+
+                with open('wordlist.txt', 'r') as file:
+                    content = file.read()
+                    print("Loading Passwords\n")
+                    line_count = 0
+                    for line in file:
+                        line_count += 1
+                    
+                    print(f"{line_count} default passwords loaded!")
+                    
                 try:
                     usernameField = WebDriverWait(
                         driver, 10).until(
