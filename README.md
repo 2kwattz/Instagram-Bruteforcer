@@ -1,6 +1,6 @@
 # Instagram Bruteforcer by Roshan Bhatia // IG @2kwattz
 
-#### Run Command : pip3 install -r  requirements 
+#### Run Command : pip3 install -r  requirements.txt
 #### python3 instabrute.py || python instabrute.py on Windows
 
 #### Introduction: Fully Functional Instagram Password Attack Tool coded in python
