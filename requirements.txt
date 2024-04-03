@@ -2,3 +2,4 @@ selenium
 requests
 beautifulsoup4
 pyfiglet
+PySocks
