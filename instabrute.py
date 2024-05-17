@@ -18,7 +18,7 @@ banner = pyfiglet.figlet_format("Instagram Bruteforcer")
 print(banner)
 print("For Educational Purpose Only. Author : Roshan Bhatia IG @2kwattz\n")
 time.sleep(1)
-print("Please enter account's username")
+print("Please enter the account's username")
 username = input()
 
 timer_delay = int(input("Enter Bruteforce timer delay"))
