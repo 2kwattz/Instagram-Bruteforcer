@@ -13,3 +13,4 @@
 
 * Implementation of proxychains for Throttling Attempts to avoid account locking issue
 * Showing additional account's information in color a for aesthetics purposes
+* Option to add a custom wordlist
