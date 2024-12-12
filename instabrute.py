@@ -17,7 +17,7 @@ import socket
 banner = pyfiglet.figlet_format("Instagram Bruteforcer")
 print(banner)
 print("For Educational Purpose Only. Author : Roshan Bhatia IG @2kwattz\n")
-time.sleep(1)
+time.sleep(2)
 print("Please enter the account's username")
 username = input()
 
@@ -34,7 +34,6 @@ def startBruteforce(driver):
         try:
             with open('soup_content.txt', 'w', encoding='utf-8') as file:
                 file.write(str(soup))
-                print("Content saved to 'soup_content.txt' successfully.")
         except:
             print("Can't use fs module.")
 
